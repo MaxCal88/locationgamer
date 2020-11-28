@@ -28,8 +28,13 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
     removalNode <- which(unvisitedNodes$Status == "Current")
     visitedNodes <- rbind(visitedNodes, unvisitedNodes[removalNode, 1:3])
     unvisitedNodes <- unvisitedNodes[-removalNode,]
-    newCurrent <- unvisitedNodes$Node[which(unvisitedNodes$CurrentValue == min(unvisitedNodes$CurrentValue, na.rm = TRUE))]
-    unvisitedNodes$Status[which(unvisitedNodes$Node == newCurrent)] <- "Current"
+
+    if(dim(unvisitedNodes)[1] == 0){
+      break
+    }else{
+      newCurrent <- unvisitedNodes$Node[which(unvisitedNodes$CurrentValue == min(unvisitedNodes$CurrentValue, na.rm = TRUE))]
+      unvisitedNodes$Status[which(unvisitedNodes$Node == newCurrent)] <- "Current"
+    }
   }
   # get neighbors of current node
 
@@ -45,22 +50,28 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
   visitedNodes$directParent[1] <- 1
 
   while (visitedNodes$directParent[which(visitedNodes$Node == initialNode)] == 0){
-    directParent <- which(edgeMatrix[,child] == 1)
-    distChildParent <- matrix(0, nrow = length(directParent), ncol = 2)
-    if(length(directParent) == 1){
-      directParent <- directParent
-    }else{
-      distChildParent[,1] <- directParent
-      for (i in 1:length(directParent)){
-        distChildParent[i,2] <- euclidDistance(coordMatrix[distChildParent[i,1],1],coordMatrix[distChildParent[i,1],2],coordMatrix[child,1],coordMatrix[child,2])
+    possibleParents <- which(edgeMatrix[,child] == 1)
+    containedParents <- possibleParents[(possibleParents %in% visitedNodes$Node)]
+
+    if (length(containedParents) == 1){
+      child <- containedParents
+      visitedNodes$directParent[which(visitedNodes$Node == child)] <- 1
+    } else{
+      childToParent <- matrix(0, nrow = length(containedParents), ncol = 1)
+      for(i in 1:length(containedParents)){
+        childToParent[i] <- euclidDistance(coordMatrix[child,1],coordMatrix[child,2],coordMatrix[containedParents[i],1],coordMatrix[containedParents[i],2])
       }
-      directParentVal <- intersect(visitedNodes$CurrentValue, visitedNodes$CurrentValue[which(visitedNodes$Node == child)] - distChildParent[,2])
-      directParent <- visitedNodes$Node[which(visitedNodes$CurrentValue == directParentVal)]
+      childParentComp <- visitedNodes$CurrentValue[which(visitedNodes$Node == child)] - childToParent
+      auxiliary <- order(visitedNodes$Node[containedParents])
+      currentParentsValues <- (visitedNodes$CurrentValue[containedParents])[auxiliary]
+      childParentDeviation <- childParentComp - currentParentsValues
+      lowestDeviation <- which(childParentDeviation == min(abs(childParentDeviation)))
+      parentNew <- containedParents[lowestDeviation]
+      visitedNodes$directParent[which(visitedNodes$Node == parentNew)] <- 1
+      child <- parentNew
     }
-    child <- directParent
-    visitedNodes$directParent[which(visitedNodes$Node == child)] <- 1
   }
-   djikstraPath <- visitedNodes$Node[which(visitedNodes$directParent == 1)]
+  djikstraPath <- visitedNodes$Node[which(visitedNodes$directParent == 1)]
 
   result <- list(djikstraPath, visitedNodes[1,3])
   result
