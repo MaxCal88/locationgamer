@@ -1,11 +1,16 @@
 Package: locationgamer
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Tools to find equilibria in networks for location games
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Maximilian Zellner
+Maintainer: Maximilian Zellner <zellnermaximilian@gmail.com>
+Description: This package bundles several functions necessary to find the 
+    equilibrium locations in location games. In these games, two competing actors want to 
+    place customer-serving units in two locations simultaneously. Customers make the 
+    decision to visit the location that is closest to them. 
+    The functions in this package include Prim's algorithm to find the minimum spanning tree connecting all network vertices, 
+    an implementation of Djikstra's algorithm to find the shortest distance and path between any two vertices, an algorithm using elimination of purely dominated
+    strategies to find the Nash equilibria, and several plotting functions.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
