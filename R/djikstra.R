@@ -76,7 +76,7 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
           childToParent[i,2] <- euclidDistance(coordMatrix[child,1],coordMatrix[child,2],coordMatrix[containedParents[i],1],coordMatrix[containedParents[i],2])
         }
         childToParent[,3] <- visitedNodes$CurrentValue[which(visitedNodes$Node == child)] - childToParent[,2]
-        parentNewIdx <- which(childToParent[,3] == min(childToParent[,3]))
+        parentNewIdx <- which(childToParent[,3] == min(abs(childToParent[,3]))
         visitedNodes$directParent[which(visitedNodes$Node == childToParent[parentNewIdx,1])] <- 1
         child <- childToParent[parentNewIdx,1]
       }
