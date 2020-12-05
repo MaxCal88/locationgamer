@@ -27,7 +27,7 @@ djikstraPath <- newRes[[1]]
 plotNetwork(edgeMatrix, coordMatrix)
 plotDjikstra(edgeMatrix, coordMatrix, djikstraPath)
 
-edgeMatrix[,1] <- c(0,1,1,1)
-edgeMatrix[,2] <- c(1,0,1,1)
-edgeMatrix[,3] <- c(1,1,0,1)
-edgeMatrix[,4] <- c(1,1,1,0)
+edgeMatrix[,1] <- c(0,1,1,0)
+edgeMatrix[,2] <- c(1,0,1,0)
+edgeMatrix[,3] <- c(1,1,0,0)
+edgeMatrix[,4] <- c(0,0,0,0)
