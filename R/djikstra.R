@@ -48,7 +48,7 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
 
   #Recursively solve shortest path
 
-  if(is.na(djikstraPath) == FALSE){
+  if(unique(is.na(djikstraPath)) == FALSE){
     shortestPath <- matrix(NA, nrow = (dim(visitedNodes)[1])+1, ncol = 1)
     shortestPath[1] <- endNode
     nVisited <- dim(visitedNodes)[1]
@@ -69,14 +69,17 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
         visitedNodes$directParent[which(visitedNodes$Node == child)] <- 1
       } else{
 
-        ### There is a bug here! REDO!!!
-        childToParent <- matrix(0, nrow = length(containedParents), ncol = 3)
+        childToParent <- matrix(0, nrow = length(containedParents), ncol = 5)
         for(i in 1:length(containedParents)){
           childToParent[i,1] <- containedParents[i]
           childToParent[i,2] <- euclidDistance(coordMatrix[child,1],coordMatrix[child,2],coordMatrix[containedParents[i],1],coordMatrix[containedParents[i],2])
+          childToParent[i,4] <- visitedNodes$CurrentValue[which(visitedNodes$Node == containedParents[i])]
         }
+
         childToParent[,3] <- visitedNodes$CurrentValue[which(visitedNodes$Node == child)] - childToParent[,2]
-        parentNewIdx <- which(childToParent[,3] == min(abs(childToParent[,3])))
+        childToParent[,5] <- childToParent[,4] - childToParent[,3]
+        childToParent[,5] <- abs(childToParent[,5])
+        parentNewIdx <- which(childToParent[,5] == min(childToParent[,5]))
         visitedNodes$directParent[which(visitedNodes$Node == childToParent[parentNewIdx,1])] <- 1
         child <- childToParent[parentNewIdx,1]
       }
