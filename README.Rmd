@@ -5,7 +5,7 @@ output: html_document
 
 ## Purpose of the package "locationgamer"
 
-The purpose of the package "locationgamer" is to identify Nash Equilibrium (strategic form) locations in a network. In this network, customers make the decision which location to visit based on their distance to the closest locations. Competitors have to decide where to put their two service stations such that they maximize their own return or demand. The result of this package is all pure strategy Nash Equilibrium locations. <\br>
+The purpose of the package "locationgamer" is to identify Nash Equilibrium (strategic form) locations in a network. In this network, customers make the decision which location to visit based on their distance to the closest locations. Competitors have to decide where to put their two service stations such that they maximize their own return or demand. The result of this package is all pure strategy Nash Equilibrium locations. \br
 Therefore, the package can help to:
 
 1. Study the effects of particular network designs on the existence of Nash Equilibrium locations.
@@ -22,8 +22,12 @@ The package also contains functions necessary to obtain the above-mentioned goal
 
 ## How to use "locationgamer"
 
-To use the package "locationgamer", one has to specify the network by generating a matrix containing all edges ("edgeMatrix") and their location on the x-y-plane ("coordMatrix"). Furthermore, one has to specify the number of players, whose default is set to 2, and a vector of demand or revenue occurring at each vertex of the network. The function to find equilibrium locations, "lgsolve", draws on the function "djikstra" to determine the distance between all vertexes given the edges of the network. <\br>
-The minimum spanning tree connecting all the network vertexes is obtained by providing a distance matrix to the function "primDistance". The distance matrix can be obtained by using the function "createMatrix", which uses the vertex coordinates as an input. <\br>
+To use the package "locationgamer", one has to specify the network by generating a matrix containing all edges ("edgeMatrix") and their location on the x-y-plane ("coordMatrix"). Furthermore, one has to specify the number of players, whose default is set to 2, and a vector of demand or revenue occurring at each vertex of the network. The function to find equilibrium locations, "lgsolve", draws on the function "djikstra" to determine the distance between all vertexes given the edges of the network. \br
+
+The output is a square matrix, in which one denotesthe existence of a Nash Equilibrium location, and zero otherwise. The row index corresponds to the location of player one at the respective vertex, and the column to player two. For example, if there is the cell [1,5] contains a one, then player one being on vertex 1 and player two on vertex 2 constitutes a Nash Equilibrium location.  \br
+
+The minimum spanning tree connecting all the network vertexes is obtained by providing a distance matrix to the function "primDistance". The distance matrix can be obtained by using the function "createMatrix", which uses the vertex coordinates as an input. \br
+
 The other functions contained in this package are useful when plotting the network, the minimum spanning tree, or the shortest path.
 
 ## How can "locationgamer" be accessed
