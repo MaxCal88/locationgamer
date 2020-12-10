@@ -63,7 +63,13 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
           break
         } else{
           newCurrent <- unvisitedNodes$Node[which(unvisitedNodes$CurrentValue == min(unvisitedNodes$CurrentValue, na.rm = TRUE))]
-          unvisitedNodes$Status[which(unvisitedNodes$Node == newCurrent)] <- "Current"
+
+          if(length(newCurrent) > 1){
+            randomIdx <- sample(1:length(newCurrent),1)
+            unvisitedNodes$Status[which(unvisitedNodes$Node == newCurrent[randomIdx])] <- "Current"
+          } else{
+            unvisitedNodes$Status[which(unvisitedNodes$Node == newCurrent)] <- "Current"
+          }
         }
       }
     }

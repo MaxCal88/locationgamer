@@ -1,3 +1,21 @@
+#' @title Create random coordinates for network vertexes
+#'
+#' @param nNodes The number of vertexes/ nodes in the network
+#' @param xMax The maximum x-coordinate of the nodes in the network
+#' @param xMin The minimum x-coordinate of the nodes in the network
+#' @param yMax The maximum y-coordinate of the nodes in the network
+#' @param yMin The minimum y-coordinate of the nodes in the network
+#'
+#' @return A data frame with dimensions nNodes x 2 containing the x and y coordinates of the network's vertexes
+#'
+#' @example
+#' nNodes <- 10
+#' xMax <- 2000
+#' xMin <- 0
+#' yMax <- 3000
+#' yMin <- 200
+#' randomCoordinates(nNodes, xMax, xMin, yMax, yMin)
+
 randomCoordinates <- function(nNodes, xMax, xMin, yMax, yMin){
   nodeCoordinates <- as.data.frame(matrix(0, ncol = 2, nrow = nNodes))
   colnames(nodeCoordinates) <- c("xCoordinate", "yCoordinate")

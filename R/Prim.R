@@ -64,3 +64,5 @@ newRes4 <- djikstra(edgeMatrix4, coordMatrix, initialNode, endNode, nNodes)
 djikstraPath4 <- newRes4[[1]]
 plotNetwork(edgeMatrix4, coordMatrix)
 plotDjikstra(edgeMatrix4, coordMatrix, djikstraPath4)
+
+

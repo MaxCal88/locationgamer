@@ -1,12 +1,29 @@
-# Plots the shortest path on the provided network
-# Requires the edgematrix (0 if not connected, 1 if connected, and the coordinate matrix)
+#' @title Plot shortest path between two points in a network
+#'
+#' @description This function plots the entire network and shortest path between two points. The parameter
+#' djikstraPath is obtained by the function djikstra, in which one has to specify the initial and end node of
+#' the path.
+#' @param edgeMatrix A matrix containing zeros and ones if an edge between two vertexes is absent or not
+#' @param coordMatrix A data frame containing the x and y coordinates of each vertex of the network
+#' @param djikstraPath A vector of numbers corresponding to the vertexes of the shortest path through the network
+#' @return Function outputs a two-dimensional plot
+#'
+#' @examples
+#' edgeMatrix <- matrix(0, nrow = 4, ncol = 4)
+#' edgeMatrix[,1] <- c(0,1,0,0)
+#' edgeMatrix[,2] <- c(1,0,1,1)
+#' edgeMatrix[,3] <- c(0,1,0,0)
+#' edgeMatrix[,4] <- c(0,1,0,0)
+#' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
+#' djikstraPath <- c(4,2,1)
+#' plotDjikstra(edgeMatrix, coordMatrix, djikstraPath)
 
 plotDjikstra <- function(edgeMatrix, coordMatrix, djikstraPath){
   minAx <- min(union(coordMatrix[,1], coordMatrix[,2]))
   maxAx <- max(union(coordMatrix[,1], coordMatrix[,2]))
   par(pty = "s")
   plot(coordMatrix[,1], coordMatrix[,2], xlim = c(minAx,maxAx), ylim = c(minAx,maxAx), xlab = "X", ylab = "Y")
-  
+
   for (i in 1:dim(edgeMatrix)[1]){
     for (j in 1: dim(edgeMatrix)[2]){
       if(edgeMatrix[i,j] == 1){
@@ -14,9 +31,9 @@ plotDjikstra <- function(edgeMatrix, coordMatrix, djikstraPath){
       }
     }
   }
-  
+
   for (i in 1:(length(djikstraPath)-1)){
     segments(coordMatrix[djikstraPath[i],1],coordMatrix[djikstraPath[i],2],coordMatrix[djikstraPath[i+1],1],coordMatrix[djikstraPath[i+1],2], col = 'red')
   }
-  
+
 }
