@@ -2,20 +2,22 @@
 % Please edit documentation in R/plotPrim.R
 \name{plotPrim}
 \alias{plotPrim}
-\title{Plotting minimum spanning tree connecting all vertices}
+\title{Plotting minimum spanning tree connecting all vertexes}
 \usage{
 plotPrim(minimumSp, coordMat)
 }
 \arguments{
-\item{minimumSp}{A data frame in which each row corresponds to an edge between two numbered vertices. Generated from function primDistance.}
+\item{minimumSp}{A data frame in which each row corresponds to an edge between two numbered vertexes Use function primDistance
+to obtain minimum spanning tree using Prim's algorithm.}
 
-\item{coordMat}{A matrix containing all the x and y coordinates of the network vertices}
+\item{coordMat}{A matrix containing all the x and y coordinates of the network vertexes.}
 }
 \description{
-Plotting minimum spanning tree connecting all vertices
+Plotting minimum spanning tree connecting all vertexes
 }
 \examples{
 minimumSp <- matrix(c(1,4,4,3,2,3),ncol = 2)
 coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
 plotPrim(minimumSp, coordMatrix)
+
 }

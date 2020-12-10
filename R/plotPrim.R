@@ -8,6 +8,10 @@
 #' minimumSp <- matrix(c(1,4,4,3,2,3),ncol = 2)
 #' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
 #' plotPrim(minimumSp, coordMatrix)
+#'
+#' @import graphics
+#'
+#' @export
 
 plotPrim <- function(minimumSp, coordMat){
   minAx <- min(union(coordMat[,1], coordMat[,2]))

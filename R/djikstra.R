@@ -23,6 +23,7 @@
 #' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
 #' djikstra(edgeMatrix, coordMatrix, initialNode, endNode, nNodes)
 #'
+#' @export
 
 djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
   unvisitedNodes <- as.data.frame(matrix(NA, nrow = nNodes, ncol = 4))

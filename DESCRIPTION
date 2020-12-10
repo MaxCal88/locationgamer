@@ -11,7 +11,8 @@ Description: This package bundles several functions necessary to find the
     The functions in this package include Prim's algorithm to find the minimum spanning tree connecting all network vertices, 
     an implementation of Djikstra's algorithm to find the shortest distance and path between any two vertices, an algorithm using elimination of purely dominated
     strategies to find the Nash equilibria, and several plotting functions.
-License: What license is it under?
+License: MIT + file LICENSE
+Imports: graphics
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

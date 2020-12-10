@@ -8,13 +8,15 @@
 #'
 #' @return A data frame with dimensions nNodes x 2 containing the x and y coordinates of the network's vertexes
 #'
-#' @example
+#' @examples
 #' nNodes <- 10
 #' xMax <- 2000
 #' xMin <- 0
 #' yMax <- 3000
 #' yMin <- 200
 #' randomCoordinates(nNodes, xMax, xMin, yMax, yMin)
+#'
+#' @export
 
 randomCoordinates <- function(nNodes, xMax, xMin, yMax, yMin){
   nodeCoordinates <- as.data.frame(matrix(0, ncol = 2, nrow = nNodes))

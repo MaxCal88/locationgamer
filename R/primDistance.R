@@ -3,8 +3,13 @@
 #' @param distMatrix A square matrix containing the distances between all vertexes of a network
 #' @return A matrix with rows describing which vertex is connected to which other vertex.
 #' @examples
-#' distMatrix <- matrix(c(0,10,20,30,10,0,40,60,20,40,0,30,30,60,30,0), nrow = 4, ncol = 4, byrow = TRUE)
+#' distMatrix <- matrix(c(0,10,20,30,10,0,40,60,20,40,0,30,30,60,30,0),
+#' nrow = 4, ncol = 4, byrow = TRUE)
 #' primDistance(distMatrix)
+#'
+#' @import graphics
+#'
+#' @export
 #'
 primDistance <- function(distMatrix){
   diag(distMatrix) <- NA

@@ -17,6 +17,10 @@
 #' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
 #' djikstraPath <- c(4,2,1)
 #' plotDjikstra(edgeMatrix, coordMatrix, djikstraPath)
+#'
+#' @import graphics
+#'
+#' @export
 
 plotDjikstra <- function(edgeMatrix, coordMatrix, djikstraPath){
   minAx <- min(union(coordMatrix[,1], coordMatrix[,2]))

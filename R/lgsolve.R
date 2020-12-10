@@ -21,6 +21,7 @@
 #' coordMatrix <- matrix(c(0,3,0,2,0,1,1,3,1,2,1,1), nrow = 6, ncol = 2, byrow = TRUE)
 #' demandLoc <- c(100, 100, 100, 100, 100, 100)
 #' lgsolve(edgeMatrix, coordMatrix, 2, demandLoc)
+#' @export
 
 lgsolve <- function(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc){
   shortestDistMatrix <- matrix(0, ncol = dim(edgeMatrix)[2], nrow = dim(edgeMatrix)[1])

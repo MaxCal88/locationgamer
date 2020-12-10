@@ -9,6 +9,10 @@
 #' edgeMatrix[,4] <- c(0,1,0,0)
 #' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
 #' plotNetwork(edgeMatrix, coordMatrix)
+#'
+#' @import graphics
+#'
+#' @export
 
 plotNetwork <- function(edgeMatrix, coordMatrix){
   minAx <- min(union(coordMatrix[,1], coordMatrix[,2]))
