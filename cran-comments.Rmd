@@ -1,0 +1,11 @@
+---
+title: "cran-comments"
+output: html_document
+---
+
+## Test environments
+* local OS Big Sur install, R 3.6.1
+* win-builder (devel)
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs. 
