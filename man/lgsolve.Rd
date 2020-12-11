@@ -16,8 +16,9 @@ lgsolve(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc)
 \item{demandLoc}{A vector containing the demand or profit at each vertext of the network}
 }
 \value{
-A matrix with zeros and ones, where a one symbolizes a equilibrium location. The row index denotes the location of player 1,
-and the column index the location chosen by player 2.
+A list with two components. A matrix with zeros and ones, where a one symbolizes a equilibrium location. The row index denotes the location of player 1,
+and the column index the location chosen by player 2. The second entry is a summary of all
+equilibrium locations and the payoffs for player 1 and 2.
 }
 \description{
 Function finds the equilibrium locations of a location game, similar to a hotelling game. Clients choose

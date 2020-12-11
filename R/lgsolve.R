@@ -7,8 +7,9 @@
 #' @param nPlayers Number of players in the location game. Default is set to 2, which is the only number of players supported right now.
 #' @param demandLoc A vector containing the demand or profit at each vertext of the network
 #'
-#' @return A matrix with zeros and ones, where a one symbolizes a equilibrium location. The row index denotes the location of player 1,
-#' and the column index the location chosen by player 2.
+#' @return A list with two components. A matrix with zeros and ones, where a one symbolizes a equilibrium location. The row index denotes the location of player 1,
+#' and the column index the location chosen by player 2. The second entry is a summary of all
+#' equilibrium locations and the payoffs for player 1 and 2.
 #'
 #' @examples
 #' edgeMatrix <- matrix(0, nrow = 6, ncol = 6)
@@ -100,10 +101,27 @@ lgsolve <- function(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc){
         }
       }
 
+    Nashidx <- which(NashLoc == 1, arr.ind = TRUE)
+
+    if(length(Nashidx) == 0){
+      stop("No Nash Location can be found")
+    } else{
+      NashPayoff <- matrix(NA, nrow = dim(Nashidx)[1],4)
+
+      for (i in 1:dim(Nashidx)[1]){
+        NashPayoff[i,1] <- Nashidx[i,1]
+        NashPayoff[i,2] <- Nashidx[i,2]
+        NashPayoff[i,3] <- returnPlayer1[Nashidx[i,1],Nashidx[i,2]]
+        NashPayoff[i,4] <- returnPlayer2[Nashidx[i,1],Nashidx[i,2]]
+      }
+      colnames(NashPayoff) <- c("Location_P1", "Location_P2", "Payoff_P1", "Payoff_P2")
+    }
+
   } else{
     print("Method for multiple players is not implemented yet!")
   }
-  NashLoc
+  result <- list(NashLoc, NashPayoff)
+  result
 }
 
 
