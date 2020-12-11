@@ -13,7 +13,7 @@ lgsolve(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc)
 
 \item{nPlayers}{Number of players in the location game. Default is set to 2, which is the only number of players supported right now.}
 
-\item{demandLoc}{A vector containing the demand or profit at each vertext of the network}
+\item{demandLoc}{A vector containing the demand or profit at each vertex of the network}
 }
 \value{
 A list with two components. A matrix with zeros and ones, where a one symbolizes a equilibrium location. The row index denotes the location of player 1,

@@ -5,7 +5,7 @@
 #' @param edgeMatrix A square matrix consisting of zeros and ones. Has to be zero on the diagonals
 #' @param coordMatrix A data frame containing the x and y coordinates of each network vertex
 #' @param nPlayers Number of players in the location game. Default is set to 2, which is the only number of players supported right now.
-#' @param demandLoc A vector containing the demand or profit at each vertext of the network
+#' @param demandLoc A vector containing the demand or profit at each vertex of the network
 #'
 #' @return A list with two components. A matrix with zeros and ones, where a one symbolizes a equilibrium location. The row index denotes the location of player 1,
 #' and the column index the location chosen by player 2. The second entry is a summary of all

@@ -18,7 +18,7 @@ plotNetwork <- function(edgeMatrix, coordMatrix){
   minAx <- min(union(coordMatrix[,1], coordMatrix[,2]))
   maxAx <- max(union(coordMatrix[,1], coordMatrix[,2]))
   par(pty = "s")
-  plot(coordMatrix[,1], coordMatrix[,2], xlim = c(minAx,maxAx), ylim = c(minAx,maxAx))
+  plot(coordMatrix[,1], coordMatrix[,2], xlim = c(minAx,maxAx), ylim = c(minAx,maxAx), xlab = "X", ylab = "Y")
   for (i in 1:dim(edgeMatrix)[1]){
     for (j in 1:dim(edgeMatrix)[2]){
       if(edgeMatrix[i,j] == 1){
