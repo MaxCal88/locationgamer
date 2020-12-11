@@ -3,3 +3,5 @@
 ^cran-comments.Rmd$
 ^README.Rmd$
 ^README.html$
+^CRAN-RELEASE$
+^cran-comments\.md$
