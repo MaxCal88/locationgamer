@@ -50,21 +50,17 @@ lgsolve <- function(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc){
         comparison <- apply(compFrame,1,min)
         idx <- matrix(0, nrow = length(comparison), ncol = 1)
 
-        if(choice1 == choice2){
-          idx[i] <- 0
-        }else{
-          for (i in 1: length(idx)){
-            #idx[i] <- which(compFrame[i,] == min(compFrame[i,]))
-            minLoc <- which(compFrame[i,] == min(compFrame[i,]))
 
-            if (length(minLoc) == 2){
-              idx[i] <- 0 # equidistant
-            }else{
-              idx[i] = minLoc
-            }
+        for (i in 1:length(idx)){
+          if(compFrame[i,1] == Inf & compFrame[i,2] == Inf ){
+            idx[i] <- 3
+          }else if(compFrame[i,1] == compFrame[i,2] & compFrame[i,1] != Inf & compFrame[i,2] != Inf){
+            idx[i] <- 0
+          } else{
+            minLoc <- which(compFrame[i,] == min(compFrame[i,]))
+            idx[i] = minLoc
           }
         }
-
 
         compFrame <- cbind(compFrame,idx)
         demand1 <- sum(demandLoc[which(compFrame[,3] == 1)]) + sum(demandLoc[which(compFrame[,3] == 0)])/2
@@ -121,6 +117,7 @@ lgsolve <- function(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc){
     print("Method for multiple players is not implemented yet!")
   }
   result <- list(NashLoc, NashPayoff)
+  names(result) <- c("Equilibrium Locations", "Equilibrium Summary")
   result
 }
 
