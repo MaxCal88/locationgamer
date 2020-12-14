@@ -1,6 +1,6 @@
 Package: locationgamer
 Type: Package
-Title: Tools to Find Equilibria in Networks for Location Games
+Title: Identification of Location Game Equilibria in Connected and Disconnected Networks
 Version: 0.1.0
 Author: Maximilian Zellner
 Maintainer: Maximilian Zellner <zellnermaximilian@gmail.com>
