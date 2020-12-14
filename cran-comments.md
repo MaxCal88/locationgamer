@@ -13,5 +13,5 @@ Possibly mis-spelled words in DESCRIPTION:
   Djikstra (11:26)
   Equilibria (3:22)
 
-
+* This is a resubmission.
 * This is a new release.
