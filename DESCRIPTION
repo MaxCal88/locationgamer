@@ -12,8 +12,9 @@ Description: Identification of equilibrium locations in location games (Hotellin
     <doi:10.1002/j.1538-7305.1957.tb01515.x>) to find the minimum spanning tree 
     connecting all network vertices, an implementation of Dijkstra algorithm 
     (Dijkstra (1959) <doi:10.1007/BF01386390>) to find the shortest distance and 
-    path between any two vertices, an algorithm using elimination of purely 
-    dominated strategies to find the equilibrium, and several plotting functions.
+    path between any two vertices, a self-developed algorithm using elimination 
+    of purely dominated strategies to find the equilibrium, and several plotting 
+    functions.
 License: MIT + file LICENSE
 Imports: graphics
 Encoding: UTF-8
