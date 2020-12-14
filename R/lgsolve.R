@@ -33,7 +33,7 @@ lgsolve <- function(edgeMatrix, coordMatrix, nPlayers = 2, demandLoc){
       if (i == j){
         shortestDistMatrix[i,j] <- 0
       } else{
-        shortestDistMatrix[i,j] <- djikstra(edgeMatrix, coordMatrix, i, j, nNodes)[[2]]
+        shortestDistMatrix[i,j] <- dijkstra(edgeMatrix, coordMatrix, i, j, nNodes)[[2]]
       }
     }
   }

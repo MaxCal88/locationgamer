@@ -1,4 +1,4 @@
-#' @title Shortest path through network using Djikstra's algorithm
+#' @title Shortest path through network using dijkstra's algorithm
 #'
 #' @description This function finds the shortest path from a starting node to an end node in a network
 #' specified by an edge matrix and vertex coordinates. Position i,j of the edge matrix is one if there
@@ -21,18 +21,18 @@
 #' edgeMatrix[,3] <- c(0,1,0,0)
 #' edgeMatrix[,4] <- c(0,1,0,0)
 #' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
-#' djikstra(edgeMatrix, coordMatrix, initialNode, endNode, nNodes)
+#' dijkstra(edgeMatrix, coordMatrix, initialNode, endNode, nNodes)
 #'
 #' @export
 
-djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
+dijkstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
   unvisitedNodes <- as.data.frame(matrix(NA, nrow = nNodes, ncol = 4))
   colnames(unvisitedNodes) <- c('Node','Status', 'CurrentValue','TentDistance')
   unvisitedNodes$Node <- seq(from = 1, to = nNodes, by = 1)
   unvisitedNodes$Status[initialNode] <- "Current"
   unvisitedNodes$CurrentValue[initialNode] <- 0
   visitedNodes <- NULL
-  djikstraPath <- 0
+  dijkstraPath <- 0
 
   while ((endNode %in% visitedNodes$Node) == FALSE){
     neighborNodes <- which(edgeMatrix[unvisitedNodes$Node[which(unvisitedNodes$Status == "Current")],] == 1 )
@@ -58,8 +58,8 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
       if(length(visitedNodes[,1]) > 0){
         noNeighborsLeft <- which(edgeMatrix[visitedNodes$Node, -visitedNodes$Node] == 1)
         if(length(noNeighborsLeft) == 0){
-          djikstraPath <- NA
-          lengthDjikstra <- Inf
+          dijkstraPath <- NA
+          lengthdijkstra <- Inf
           warning("Network is not connected")
           break
         } else{
@@ -78,7 +78,7 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
 
   #Recursively solve shortest path
 
-  if(unique(is.na(djikstraPath)) == FALSE){
+  if(unique(is.na(dijkstraPath)) == FALSE){
     shortestPath <- matrix(NA, nrow = (dim(visitedNodes)[1])+1, ncol = 1)
     shortestPath[1] <- endNode
     nVisited <- dim(visitedNodes)[1]
@@ -114,10 +114,10 @@ djikstra <- function(edgeMatrix, coordMatrix, initialNode, endNode, nNodes){
         child <- childToParent[parentNewIdx,1]
       }
     }
-    djikstraPath <- visitedNodes$Node[which(visitedNodes$directParent == 1)]
-    lengthDjikstra <- visitedNodes[1,3]
+    dijkstraPath <- visitedNodes$Node[which(visitedNodes$directParent == 1)]
+    lengthdijkstra <- visitedNodes[1,3]
   }
-  result <- list(djikstraPath, lengthDjikstra)
+  result <- list(dijkstraPath, lengthdijkstra)
   result
 }
 

@@ -14,7 +14,7 @@ Therefore, the package can help to:
 
 The package also contains functions necessary to obtain the above-mentioned goal and to analyze networks:
 
-*  Djikstra's algorithm to find the shortest path between any two points in the network
+*  Dijkstra's algorithm to find the shortest path between any two points in the network
 *  Prim's algorithm to find the minimum spanning tree
 *  A function to calculate the Euclidean distance between points in the two dimensional plane
 *  A function to create a number of random points in the two dimensional plane to showcase the applicability of contained functions
@@ -22,7 +22,7 @@ The package also contains functions necessary to obtain the above-mentioned goal
 
 ## How to use "locationgamer"
 
-To use the package "locationgamer", one has to specify the network by generating a matrix containing all edges ("edgeMatrix") and their location on the x-y-plane ("coordMatrix"). Furthermore, one has to specify the number of players, whose default is set to 2, and a vector of demand or revenue occurring at each vertex of the network. The function to find equilibrium locations, "lgsolve", draws on the function "djikstra" to determine the distance between all vertexes given the edges of the network. \br
+To use the package "locationgamer", one has to specify the network by generating a matrix containing all edges ("edgeMatrix") and their location on the x-y-plane ("coordMatrix"). Furthermore, one has to specify the number of players, whose default is set to 2, and a vector of demand or revenue occurring at each vertex of the network. The function to find equilibrium locations, "lgsolve", draws on the function "dijkstra" to determine the distance between all vertexes given the edges of the network. \br
 
 The output is a square matrix, in which one denotes the existence of a Nash Equilibrium location, and zero otherwise. The row index corresponds to the location of player one at the respective vertex, and the column to player two. For example, if there is the cell [1,5] contains a one, then player one being on vertex 1 and player two on vertex 2 constitutes a Nash Equilibrium location.  \br
 

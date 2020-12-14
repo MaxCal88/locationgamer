@@ -1,11 +1,11 @@
 #' @title Plot shortest path between two points in a network
 #'
 #' @description This function plots the entire network and shortest path between two points. The parameter
-#' djikstraPath is obtained by the function djikstra, in which one has to specify the initial and end node of
+#' dijkstraPath is obtained by the function dijkstra, in which one has to specify the initial and end node of
 #' the path.
 #' @param edgeMatrix A matrix containing zeros and ones if an edge between two vertexes is absent or not
 #' @param coordMatrix A data frame containing the x and y coordinates of each vertex of the network
-#' @param djikstraPath A vector of numbers corresponding to the vertexes of the shortest path through the network
+#' @param dijkstraPath A vector of numbers corresponding to the vertexes of the shortest path through the network
 #' @return Function outputs a two-dimensional plot
 #'
 #' @examples
@@ -15,14 +15,14 @@
 #' edgeMatrix[,3] <- c(0,1,0,0)
 #' edgeMatrix[,4] <- c(0,1,0,0)
 #' coordMatrix <- matrix(c(0,10,15,20,30,30,15,15),ncol = 2)
-#' djikstraPath <- c(4,2,1)
-#' plotDjikstra(edgeMatrix, coordMatrix, djikstraPath)
+#' dijkstraPath <- c(4,2,1)
+#' plotDijkstra(edgeMatrix, coordMatrix, dijkstraPath)
 #'
 #' @import graphics
 #'
 #' @export
 
-plotDjikstra <- function(edgeMatrix, coordMatrix, djikstraPath){
+plotDijkstra <- function(edgeMatrix, coordMatrix, dijkstraPath){
   minAx <- min(union(coordMatrix[,1], coordMatrix[,2]))
   maxAx <- max(union(coordMatrix[,1], coordMatrix[,2]))
   par(pty = "s")
@@ -36,8 +36,8 @@ plotDjikstra <- function(edgeMatrix, coordMatrix, djikstraPath){
     }
   }
 
-  for (i in 1:(length(djikstraPath)-1)){
-    segments(coordMatrix[djikstraPath[i],1],coordMatrix[djikstraPath[i],2],coordMatrix[djikstraPath[i+1],1],coordMatrix[djikstraPath[i+1],2], col = 'red')
+  for (i in 1:(length(dijkstraPath)-1)){
+    segments(coordMatrix[dijkstraPath[i],1],coordMatrix[dijkstraPath[i],2],coordMatrix[dijkstraPath[i+1],1],coordMatrix[dijkstraPath[i+1],2], col = 'red')
   }
 
 }

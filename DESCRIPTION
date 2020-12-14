@@ -4,11 +4,11 @@ Title: Tools to Find Equilibria in Networks for Location Games
 Version: 0.1.0
 Author: Maximilian Zellner
 Maintainer: Maximilian Zellner <zellnermaximilian@gmail.com>
-Description: Identification of Nash equilibrium locations in location games. In these games, two competing actors want to 
+Description: Identification of equilibrium locations in location games (Hotelling (1929) <doi:10.2307/2224214>). In these games, two competing actors want to 
     place customer-serving units in two locations simultaneously. Customers make the 
     decision to visit the location that is closest to them. 
-    The functions in this package include Prim algorithm to find the minimum spanning tree connecting all network vertices, 
-    an implementation of Djikstra algorithm to find the shortest distance and path between any two vertices, an algorithm using elimination of purely dominated
+    The functions in this package include Prim algorithm (Prim (1957) <doi:10.1002/j.1538-7305.1957.tb01515.x>) to find the minimum spanning tree connecting all network vertices, 
+    an implementation of Dijkstra algorithm (Dijkstra (1959) <doi:10.1007/BF01386390>) to find the shortest distance and path between any two vertices, an algorithm using elimination of purely dominated
     strategies to find the Nash equilibrium, and several plotting functions.
 License: MIT + file LICENSE
 Imports: graphics
