@@ -10,8 +10,18 @@
 The note reads:
 
 Possibly mis-spelled words in DESCRIPTION:
-  Djikstra (11:26)
-  Equilibria (3:22)
+    Equilibria (3:22)
+    Hotelling (7:73)
+  
+  New submission
+  
+  Found the following (possibly) invalid DOIs:
+    DOI: 10.2307/2224214
+      From: DESCRIPTION
+      Status: Forbidden
+      Message: 403
+      
+I checked the DOI on DOI.org and it references the intended paper of Hotelling "Stability in Competition".
 
 * This is a resubmission.
 * This is a new release.
