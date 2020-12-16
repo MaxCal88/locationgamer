@@ -25,7 +25,6 @@
 plotDijkstra <- function(edgeMatrix, coordMatrix, dijkstraPath){
   minAx <- min(union(coordMatrix[,1], coordMatrix[,2]))
   maxAx <- max(union(coordMatrix[,1], coordMatrix[,2]))
-  par(pty = "s")
   plot(coordMatrix[,1], coordMatrix[,2], xlim = c(minAx,maxAx), ylim = c(minAx,maxAx), xlab = "X", ylab = "Y")
 
   for (i in 1:dim(edgeMatrix)[1]){

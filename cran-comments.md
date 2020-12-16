@@ -23,5 +23,7 @@ Possibly mis-spelled words in DESCRIPTION:
       
 I checked the DOI on DOI.org and it references the intended paper of Hotelling "Stability in Competition".
 
+I removed the command par() in the plotting functions to avoid changing the user's options, par, or working directory.
+
 * This is a resubmission.
 * This is a new release.
